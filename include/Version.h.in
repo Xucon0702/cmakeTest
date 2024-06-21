@@ -1,0 +1,37 @@
+#ifndef _VERSION_H__
+#define _VERSION_H__
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+    static inline const char* GetSystemDesc()
+    {
+        return "@SYSTEM_VERSION_DESC@";
+    }
+
+    static inline const char* GetGitHash()
+    {
+        return "@GIT_HASH@";
+    }
+
+    static inline const char* GetGitBranch()
+    {
+        return "@GIT_BRANCH@";
+    }
+    static inline const char* GetCompileTime()
+    {
+        return "@COMPILE_TIME@";
+    }
+    const char* GetVersionDescImp(const char* moduleName, const char* moduleVersion, \
+                const char* systemDesc, const char* gitHash, const char* gitGitBranch, const char* compileTime);
+
+    static inline const char* GetVersionDesc(const char* moduleName, const char* moduleVersion)
+    {
+        return GetVersionDescImp(moduleName, moduleVersion, GetSystemDesc(), GetGitHash(), GetGitBranch(), GetCompileTime());
+    }
+#ifdef __cplusplus
+}
+#endif
+
+#endif //_VER_H__
