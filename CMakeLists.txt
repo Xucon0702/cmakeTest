@@ -47,6 +47,7 @@ add_executable(${PROJECT_NAME} ${SOURCE_FILES})
         
 # )
 
+#工程较小时不添加也不影响，主要时设置编译依赖，框定编译顺序，防止工程过大后没有按照   add_subdirectory顺序编译而导致编译错误
 add_dependencies(${PROJECT_NAME}
     Always_check_git
 )
